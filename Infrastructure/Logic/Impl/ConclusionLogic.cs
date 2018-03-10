@@ -1,4 +1,5 @@
 ﻿using Infrastructure.Logic;
+using Infrastructure.Model;
 using Infrastructure.Repositories;
 using System;
 using System.Collections.Generic;
@@ -8,12 +9,21 @@ using System.Threading.Tasks;
 
 namespace Infrastructure.Logic.Impl
 {
-    public class ConclusionLogic : IConclusionLogic
+    public class ConclusionLogic : LogicBase, IConclusionLogic
     {
-        ISqlTableRepository _tableRepository;
-        public ConclusionLogic(ISqlTableRepository repository)
+        public ConclusionLogic(ISqlTableRepository repository) : base(repository)
         {
-            _tableRepository = repository;
+        }
+
+        public IEnumerable<OnCustConclusion> GetConclusionIdsByIdCard(string id)
+        {
+            var arcids = _tableRepository.LoadAll<OnCustRelationCustPEInfo>(p => p.IDCardNo == id).Select(p => p.ID_Customer ?? 0);
+            return arcids.Select(p => _tableRepository.Load<OnCustConclusion>(c => c.ID_Customer == p));
+        }
+
+        public OnCustConclusion GetConclusionDetailsById(int conclusionId)
+        {
+            return _tableRepository.Load<OnCustConclusion>(p => p.ID_Conclusion == conclusionId);
         }
     }
 }

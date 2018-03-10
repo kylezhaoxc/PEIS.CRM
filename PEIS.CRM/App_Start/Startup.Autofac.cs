@@ -50,6 +50,10 @@ namespace PEIS.CRM
             protected override void Load(ContainerBuilder builder)
             {
                 builder.RegisterType<CustomerLogic>().As<ICustomerLogic>();
+                builder.RegisterType<ConclusionLogic>().As<IConclusionLogic>();
+                builder.RegisterType<FeeLogic>().As<IFeeLogic>();
+                builder.RegisterType<CustRelationLogic>().As<ICustRelationLogic>();
+
                 builder.RegisterType<SqlTableRepository>().As<ISqlTableRepository>();
 
             }

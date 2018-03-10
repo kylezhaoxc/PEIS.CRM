@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Infrastructure.Logic.Impl
 {
-    public class CustRelationLogic : LogicBase
+    public class CustRelationLogic : LogicBase, ICustRelationLogic
     {
         public CustRelationLogic(ISqlTableRepository repo) : base(repo)
         {

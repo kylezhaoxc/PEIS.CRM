@@ -1,4 +1,5 @@
-﻿using Infrastructure.Repositories;
+﻿using Infrastructure.Model;
+using Infrastructure.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,12 +8,15 @@ using System.Threading.Tasks;
 
 namespace Infrastructure.Logic.Impl
 {
-    public class FeeLogic : IFeeLogic
+    public class FeeLogic : LogicBase, IFeeLogic
     {
-        ISqlTableRepository _tableRepository;
-        public FeeLogic(ISqlTableRepository repository)
+        public FeeLogic(ISqlTableRepository repository) : base(repository)
         {
-            _tableRepository = repository;
+        }
+
+        public IEnumerable<OnCustFee> GetFeeDetailForCustomerId(int customerId)
+        {
+            return _tableRepository.LoadAll<OnCustFee>(p => p.ID_Customer == customerId);
         }
     }
 }

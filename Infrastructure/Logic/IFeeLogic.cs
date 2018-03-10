@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Infrastructure.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,5 +9,6 @@ namespace Infrastructure.Logic
 {
     public interface IFeeLogic
     {
+        IEnumerable<OnCustFee> GetFeeDetailForCustomerId(int customerId);
     }
 }

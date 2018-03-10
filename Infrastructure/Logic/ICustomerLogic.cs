@@ -9,7 +9,7 @@ namespace Infrastructure.Logic
 {
     public interface ICustomerLogic
     {
-        OnArcCust GetLatestCustomerByName(string custName);
+        IEnumerable<OnArcCust> GetLatestCustomerByName(string custName);
         OnArcCust GetLatestCustomerByIdCard(string custName);
         OnArcCust GetLatestCustomerByCustomerId(int custId);
 

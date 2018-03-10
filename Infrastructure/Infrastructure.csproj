@@ -54,6 +54,7 @@
   <ItemGroup>
     <Compile Include="Logic\IConclusionLogic.cs" />
     <Compile Include="Logic\ICustomerLogic.cs" />
+    <Compile Include="Logic\ICustRelationLogic.cs" />
     <Compile Include="Logic\IDictLogic.cs" />
     <Compile Include="Logic\IEmployeeLogic.cs" />
     <Compile Include="Logic\IFeeLogic.cs" />
@@ -61,7 +62,10 @@
     <Compile Include="Logic\Impl\CustomerLogic.cs" />
     <Compile Include="Logic\Impl\DictLogic.cs" />
     <Compile Include="Logic\Impl\EmployeeLogic.cs" />
+    <Compile Include="Logic\Impl\CustRelationLogic.cs" />
+    <Compile Include="Logic\Impl\ExamLogic.cs" />
     <Compile Include="Logic\Impl\FeeLogic.cs" />
+    <Compile Include="Logic\Impl\LogicBase.cs" />
     <Compile Include="Model\BusConclusion.cs">
       <DependentUpon>PEISCRM.tt</DependentUpon>
     </Compile>

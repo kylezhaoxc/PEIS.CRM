@@ -8,18 +8,17 @@ using System.Threading.Tasks;
 
 namespace Infrastructure.Logic.Impl
 {
-    public class CustomerLogic : ICustomerLogic
+    public class CustomerLogic : LogicBase, ICustomerLogic
     {
-        ISqlTableRepository _tableRepository;
-        public CustomerLogic(ISqlTableRepository repository)
+
+        public CustomerLogic(ISqlTableRepository repository) : base(repository)
         {
-            _tableRepository = repository;
         }
 
-        public OnArcCust GetLatestCustomerByName(string custName)
+        public IEnumerable<OnArcCust> GetLatestCustomerByName(string custName)
         {
-            return _tableRepository.LoadAll<OnArcCust>(p => p.CustomerName == custName)
-                .OrderByDescending(p => p.FirstDatePE).FirstOrDefault();
+            return _tableRepository.LoadAll<OnArcCust>(p => p.CustomerName.Contains(custName))
+                .OrderByDescending(p => p.FirstDatePE);
         }
 
         public OnArcCust GetLatestCustomerByIdCard(string custName)

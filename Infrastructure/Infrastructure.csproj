@@ -52,11 +52,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Helpers\DictionaryHelper.cs" />
     <Compile Include="Logic\IConclusionLogic.cs" />
     <Compile Include="Logic\ICustomerLogic.cs" />
     <Compile Include="Logic\ICustRelationLogic.cs" />
     <Compile Include="Logic\IDictLogic.cs" />
     <Compile Include="Logic\IEmployeeLogic.cs" />
+    <Compile Include="Logic\IExamLogic.cs" />
     <Compile Include="Logic\IFeeLogic.cs" />
     <Compile Include="Logic\Impl\ConclusionLogic.cs" />
     <Compile Include="Logic\Impl\CustomerLogic.cs" />

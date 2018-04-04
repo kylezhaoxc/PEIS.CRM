@@ -9,9 +9,11 @@ namespace Infrastructure.Logic
 {
     public interface ICustomerLogic
     {
-        IEnumerable<OnArcCust> GetLatestCustomerByName(string custName);
+        IEnumerable<OnArcCust> GetAllCustomerByName(string custName);
         OnArcCust GetLatestCustomerByIdCard(string custName);
         OnArcCust GetLatestCustomerByCustomerId(int custId);
-
+        IEnumerable<OnArcCust> GetLowFreqCustomers(int size = 20);
+        IEnumerable<OnCustPhysicalExamInfo> GetFinishedExam(DateTime targetdate);
+        IEnumerable<OnCustPhysicalExamInfo> GetUnfinishedExam(DateTime targetdate);
     }
 }

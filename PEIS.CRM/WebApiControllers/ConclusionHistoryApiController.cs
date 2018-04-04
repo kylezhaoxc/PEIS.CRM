@@ -25,25 +25,31 @@ namespace PEIS.CRM.WebApiControllers
 
         [HttpGet]
         [Route("idCardNumber/{idNumber}")]
-        public IEnumerable<OnCustConclusion> GetAllConclusionsByArcId(string idNumber)
+        public IEnumerable<OnCustConclusion> GetAllConclusionsByIdCard(string idNumber)
         {
-            return _conclusionLogic.GetConclusionIdsByIdCard(idNumber);
+            return _conclusionLogic.GetConclusionsByIdCard(idNumber);
         }
 
         [HttpGet]
-        [Route("id/{id}")]
+        [Route("custConclusionId/{id}")]
         public OnCustConclusion GetAllConclusionsByArcId(int id)
         {
             return _conclusionLogic.GetConclusionDetailsById(id);
         }
 
         [HttpGet]
-        [Route("fee/{customerId}")]
-        public IEnumerable<OnCustFee> GetFeeForCustomerId(int customerId)
+        [Route("customerName/{name}")]
+        public IEnumerable<OnCustConclusion> GetAllConclusionsByName(string customerName)
         {
-            return _feeLogic.GetFeeDetailForCustomerId(customerId);
+            return _conclusionLogic.GetConclusionsByIdCard(customerName);
         }
 
+        [HttpGet]
+        [Route("conclusionId/{id}")]
+        public OnCustConclusion GetConclusionById(int conclusionId)
+        {
+            return _conclusionLogic.GetConclusionDetailsById(conclusionId);
+        }
 
 
     }

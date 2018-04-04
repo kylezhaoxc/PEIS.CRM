@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace Infrastructure.Logic
 {
-    public interface IFeeLogic
+    public interface IExamLogic
     {
-        IEnumerable<OnCustFee> GetFeeDetailForCustomerId(int customerId);
-        double getExamPrice(OnCustPhysicalExamInfo info);
+        List<OnCustPhysicalExamInfo> GetAllPhysicalExamByIdCard(string idCard);
+        List<OnCustReportManage> GetAllReportsByCustId(int custId);
     }
 }

@@ -53,7 +53,7 @@ namespace PEIS.CRM
                 builder.RegisterType<ConclusionLogic>().As<IConclusionLogic>();
                 builder.RegisterType<FeeLogic>().As<IFeeLogic>();
                 builder.RegisterType<CustRelationLogic>().As<ICustRelationLogic>();
-
+                builder.RegisterType<ExamLogic>().As<IExamLogic>();
                 builder.RegisterType<SqlTableRepository>().As<ISqlTableRepository>();
 
             }

@@ -9,8 +9,10 @@ namespace Infrastructure.Logic
 {
     public interface IConclusionLogic
     {
-        IEnumerable<OnCustConclusion> GetConclusionIdsByIdCard(string id);
+        IEnumerable<OnCustConclusion> GetConclusionsByIdCard(string id);
 
         OnCustConclusion GetConclusionDetailsById(int conclusionId);
+
+        OnCustConclusion GetConclusionsByName(string name);
     }
 }

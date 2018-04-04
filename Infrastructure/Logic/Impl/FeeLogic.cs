@@ -18,5 +18,12 @@ namespace Infrastructure.Logic.Impl
         {
             return _tableRepository.LoadAll<OnCustFee>(p => p.ID_Customer == customerId);
         }
+
+        public double getExamPrice(OnCustPhysicalExamInfo info)
+        {
+            return _tableRepository.LoadAll<OnCustFee>(p => p.ID_Customer == info.ID_Customer)
+                .Where(p => p.ExamDate.Value.Date == info.GuideSheetReturnedDate.Value.Date)
+                .Sum(p => p.FactPrice);
+        }
     }
 }

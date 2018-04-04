@@ -23,9 +23,9 @@ namespace PEIS.CRM.WebApiControllers
         {
             try
             {
-                var result = _customerLogic.GetLatestCustomerByName(customerName);
+                var result = _customerLogic.GetAllCustomerByName(customerName);
                 if (result == null) return NotFound();
-                else return Ok(result);
+                else return Json(result);
             }
             catch (Exception e)
             {
@@ -35,14 +35,14 @@ namespace PEIS.CRM.WebApiControllers
         }
 
         [HttpGet]
-        [Route("IdCard/{IdCardNumber}")]
+        [Route("idCard/{IdCardNumber}")]
         public IHttpActionResult GetCustomerDetailByIdCard(string IdCardNumber)
         {
             try
             {
                 var result = _customerLogic.GetLatestCustomerByIdCard(IdCardNumber);
                 if (result == null) return NotFound();
-                else return Ok(result);
+                else return Json(result);
             }
             catch (Exception e)
             {
@@ -58,7 +58,7 @@ namespace PEIS.CRM.WebApiControllers
             {
                 var result = _customerLogic.GetLatestCustomerByCustomerId(customerId);
                 if (result == null) return NotFound();
-                else return Ok(result);
+                else return Json(result);
             }
             catch (Exception e)
             {

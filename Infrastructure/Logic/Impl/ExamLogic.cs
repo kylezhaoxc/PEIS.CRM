@@ -8,12 +8,20 @@ using System.Threading.Tasks;
 
 namespace Infrastructure.Logic.Impl
 {
-    public class ExamLogic : LogicBase
+    public class ExamLogic : LogicBase, IExamLogic
     {
         public ExamLogic(ISqlTableRepository repository) : base(repository)
         {
         }
 
-        
+        public List<OnCustPhysicalExamInfo> GetAllPhysicalExamByIdCard(string idCard)
+        {
+            return _tableRepository.LoadAll<OnCustPhysicalExamInfo>(p => p.IDCard == idCard);
+        }
+
+        public List<OnCustReportManage> GetAllReportsByCustId(int custId)
+        {
+            return _tableRepository.LoadAll<OnCustReportManage>(p => p.ID_Customer == custId);
+        }
     }
 }

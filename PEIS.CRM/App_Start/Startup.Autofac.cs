@@ -55,6 +55,7 @@ namespace PEIS.CRM
                 builder.RegisterType<CustRelationLogic>().As<ICustRelationLogic>();
                 builder.RegisterType<ExamLogic>().As<IExamLogic>();
                 builder.RegisterType<SqlTableRepository>().As<ISqlTableRepository>();
+                builder.RegisterType<DictLogic>().As<IDictLogic>();
 
             }
         }

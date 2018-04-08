@@ -1,4 +1,5 @@
-﻿using Infrastructure.Logic;
+﻿using Infrastructure.Helpers;
+using Infrastructure.Logic;
 using Infrastructure.Model;
 using System;
 using System.Collections.Generic;
@@ -24,6 +25,7 @@ namespace PEIS.CRM.WebApiControllers
         [Route("todayStatus")]
         public IHttpActionResult GetStatus()
         {
+            var a = DictionaryHelper.GetHelper();
             var finished = _customerLogic.GetFinishedExam(DateTime.Now.AddYears(-1));
             var unfinished = _customerLogic.GetUnfinishedExam(DateTime.Now.AddYears(-1));
 

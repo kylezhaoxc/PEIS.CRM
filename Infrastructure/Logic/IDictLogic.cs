@@ -8,5 +8,8 @@ namespace Infrastructure.Logic
 {
     public interface IDictLogic
     {
+        void AddDictItem(string dictName, string key, string value);
+
+        dynamic ListDictItem(string dictName);
     }
 }

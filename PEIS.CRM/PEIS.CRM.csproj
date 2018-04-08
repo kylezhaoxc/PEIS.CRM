@@ -250,7 +250,6 @@
     <Compile Include="WebApiControllers\DictionaryApiController.cs" />
     <Compile Include="WebApiControllers\ExamHistoryApiController.cs" />
     <Compile Include="WebApiControllers\SalePerformanceApiController.cs" />
-    <Compile Include="WebApiControllers\StaffApiController.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Areas\HelpPage\HelpPage.css" />

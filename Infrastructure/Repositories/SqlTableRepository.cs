@@ -24,6 +24,19 @@ namespace Infrastructure.Repositories
             return false;
         }
 
+        public bool Remove<T>(T t) where T : class
+        {
+            using (var dbContext = new PEISEntities())
+            {
+                dbContext.Entry(t).State = System.Data.Entity.EntityState.Deleted;
+                if (dbContext.SaveChanges() != 0)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
         public bool Insert<T>(T t) where T : class
         {
             using (var dbContext = new PEISEntities())
@@ -50,6 +63,14 @@ namespace Infrastructure.Repositories
             using (var dbContext = new PEISEntities())
             {
                 return dbContext.Set<T>().Where(whereLambda).ToList();
+            }
+        }
+
+        public List<T> LoadAllItems<T>() where T : class
+        {
+            using (var dbContext = new PEISEntities())
+            {
+                return dbContext.Set<T>().ToList();
             }
         }
 

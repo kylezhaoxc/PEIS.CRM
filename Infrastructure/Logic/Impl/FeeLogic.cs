@@ -14,7 +14,7 @@ namespace Infrastructure.Logic.Impl
         {
         }
 
-        public IEnumerable<OnCustFee> GetFeeDetailForCustomerId(int customerId)
+        public IEnumerable<OnCustFee> GetFeeDetailForCustomerId(long customerId)
         {
             return _tableRepository.LoadAll<OnCustFee>(p => p.ID_Customer == customerId);
         }

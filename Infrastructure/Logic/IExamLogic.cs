@@ -10,6 +10,6 @@ namespace Infrastructure.Logic
     public interface IExamLogic
     {
         List<OnCustPhysicalExamInfo> GetAllPhysicalExamByIdCard(string idCard);
-        List<OnCustReportManage> GetAllReportsByCustId(int custId);
+        List<OnCustReportManage> GetAllReportsByCustId(long custId);
     }
 }

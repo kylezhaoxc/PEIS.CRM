@@ -9,7 +9,7 @@ namespace Infrastructure.Logic
 {
     public interface IFeeLogic
     {
-        IEnumerable<OnCustFee> GetFeeDetailForCustomerId(int customerId);
+        IEnumerable<OnCustFee> GetFeeDetailForCustomerId(long customerId);
         double getExamPrice(OnCustPhysicalExamInfo info);
     }
 }

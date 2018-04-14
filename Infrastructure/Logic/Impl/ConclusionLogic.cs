@@ -17,8 +17,14 @@ namespace Infrastructure.Logic.Impl
 
         public IEnumerable<OnCustConclusion> GetConclusionsByIdCard(string id)
         {
-            var arcids = _tableRepository.LoadAll<OnCustRelationCustPEInfo>(p => p.IDCardNo == id).Select(p => p.ID_Customer ?? 0);
-            return arcids.Select(p => _tableRepository.Load<OnCustConclusion>(c => c.ID_Customer == p));
+            List<OnCustConclusion> result = new List<OnCustConclusion>();
+            var arcids = _tableRepository.LoadAll<OnCustRelationCustPEInfo>(p => p.IDCardNo == id).Select(p => p.ID_Customer ?? 0).ToList();
+            arcids.ForEach(p =>
+            {
+                var list = _tableRepository.LoadAll<OnCustConclusion>(c => c.ID_Customer.Value == p);
+                result.AddRange(list);
+            });
+            return result;
         }
 
         public OnCustConclusion GetConclusionDetailsById(int conclusionId)

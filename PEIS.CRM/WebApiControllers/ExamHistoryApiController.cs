@@ -28,14 +28,14 @@ namespace PEIS.CRM.WebApiControllers
         }
 
         [Route("feeHistory/customerId/{customerId}")]
-        public IHttpActionResult GetHistoryFeeForCustomerId(int customerId)
+        public IHttpActionResult GetHistoryFeeForCustomerId(long customerId)
         {
             var allFees = _feeLogic.GetFeeDetailForCustomerId(customerId);
             return Json(allFees);
         }
 
         [Route("reports/customerId/{customerId}")]
-        public IHttpActionResult GetReportsByCustomerId(int customerId)
+        public IHttpActionResult GetReportsByCustomerId(long customerId)
         {
             var allReports = _examLogic.GetAllReportsByCustId(customerId);
             return Json(allReports);

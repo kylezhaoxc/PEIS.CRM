@@ -19,7 +19,7 @@ namespace Infrastructure.Logic.Impl
             return _tableRepository.LoadAll<OnCustPhysicalExamInfo>(p => p.IDCard == idCard);
         }
 
-        public List<OnCustReportManage> GetAllReportsByCustId(int custId)
+        public List<OnCustReportManage> GetAllReportsByCustId(long custId)
         {
             return _tableRepository.LoadAll<OnCustReportManage>(p => p.ID_Customer == custId);
         }

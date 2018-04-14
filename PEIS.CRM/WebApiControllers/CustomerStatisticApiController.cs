@@ -43,6 +43,7 @@ namespace PEIS.CRM.WebApiControllers
                 freq = $"{(int)(alldates.Count() / timeSpan.Value.TotalDays) * 365}/year";
             }
             var highFreq = _conclusionLogic.GetConclusionsByIdCard(idCard)
+                .Where(p => !string.IsNullOrEmpty(p.ConclusionTypeName))
                 .Select(p => p.ConclusionTypeName)
                 .GroupBy(p => p)
                 .OrderByDescending(g => g.Count())

@@ -11,7 +11,6 @@ namespace PEIS.CRM.Controllers
         public ActionResult Index()
         {
             ViewBag.Title = "Home Page";
-
             return View();
         }
     }

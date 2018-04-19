@@ -4,6 +4,8 @@ using System.Linq;
 using Microsoft.Owin;
 using Owin;
 using System.Web.Http;
+using Microsoft.Owin.FileSystems;
+using Microsoft.Owin.StaticFiles;
 
 [assembly: OwinStartup(typeof(PEIS.CRM.Startup))]
 
@@ -23,6 +25,14 @@ namespace PEIS.CRM
             // WebAPI call must come after Autofac
             // Autofac hooks into the HttpConfiguration settings
             ConfigureWebApi(app);
+            const string rootFolder = "shenyi";
+            var filesys = new PhysicalFileSystem(rootFolder);
+            var options = new FileServerOptions
+            {
+                EnableDefaultFiles = true,
+                FileSystem = filesys
+            };
+            app.UseFileServer(options);
 
         }
     }
